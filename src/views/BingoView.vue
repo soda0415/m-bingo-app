@@ -111,7 +111,6 @@ methods: {
   drawNumber() {
     const remainingNumbers = this.numbers.filter(number => !this.selectedNumbers.includes(number));
     if (remainingNumbers.length > 0) {
-      this.countNumber++;
       this.generating = true;
       for (let i = 0; i < 15; i++) {
         setTimeout(() => {
@@ -137,6 +136,7 @@ methods: {
         //通常の抽選処理
           this.selectedNumbers.push(this.drawnNumber);
           this.normalSelectedNumbers.push(this.drawnNumber);
+          this.countNumber++;
           this.generating = false;
         }
       }, 5000);
