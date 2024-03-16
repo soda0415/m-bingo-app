@@ -1,7 +1,8 @@
 import { defineStore } from "pinia";
 
-export const useNormalSelectedNumbersStore = defineStore("normalSelectedNumbers", {
+export const useBingoNumbersStore = defineStore("bingoNumbers", {
   state: () => ({
+    selectedNumbers: [],
     normalSelectedNumbers: []
   }),
   persist: true

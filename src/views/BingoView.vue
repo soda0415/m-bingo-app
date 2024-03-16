@@ -62,8 +62,7 @@
 <script>
 import { mapWritableState } from "pinia"
 
-import { useNormalSelectedNumbersStore } from "@/stores/normalSelectedNumbers"
-import { useSelectedNumbersStore } from "@/stores/selectedNumbers"
+import { useBingoNumbersStore } from "@/stores/bingoNumbers"
 
 import rouletteSound from "../assets/roulette.mp3";
 import horagaiSound from "../assets/horagai.mp3";
@@ -80,8 +79,10 @@ data() {
   };
 },
 computed: {
-  ...mapWritableState(useNormalSelectedNumbersStore, ["normalSelectedNumbers"]),
-  ...mapWritableState(useSelectedNumbersStore, ["selectedNumbers"])
+  ...mapWritableState(useBingoNumbersStore, [
+    "normalSelectedNumbers",
+    "selectedNumbers"
+  ])
 },
 methods: {
   startBingo() {
