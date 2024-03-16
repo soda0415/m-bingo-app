@@ -60,6 +60,10 @@
 </template>
 
 <script>
+import { mapWritableState } from "pinia"
+
+import { useNormalSelectedNumbersStore } from "@/stores/normalSelectedNumbers"
+import { useSelectedNumbersStore } from "@/stores/selectedNumbers"
 
 import rouletteSound from "../assets/roulette.mp3";
 import horagaiSound from "../assets/horagai.mp3";
@@ -69,13 +73,15 @@ data() {
   return {
     drawnNumber: null,
     numbers: Array.from({ length: 75 }, (_, index) => index + 1),
-    selectedNumbers: [],
-    normalSelectedNumbers: [],
     generating: false,
     countNumber:0,
     dialog: false,
     kakutei_flg:false
   };
+},
+computed: {
+  ...mapWritableState(useNormalSelectedNumbersStore, ["normalSelectedNumbers"]),
+  ...mapWritableState(useSelectedNumbersStore, ["selectedNumbers"])
 },
 methods: {
   startBingo() {
