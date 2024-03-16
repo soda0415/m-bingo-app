@@ -70,16 +70,16 @@ import horagaiSound from "../assets/horagai.mp3";
 export default {
 data() {
   return {
-    drawnNumber: null,
     numbers: Array.from({ length: 75 }, (_, index) => index + 1),
     generating: false,
-    countNumber:0,
     dialog: false,
     kakutei_flg:false
   };
 },
 computed: {
   ...mapWritableState(useBingoNumbersStore, [
+    "countNumber",
+    "drawnNumber",
     "normalSelectedNumbers",
     "selectedNumbers"
   ])
