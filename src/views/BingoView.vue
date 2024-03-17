@@ -60,6 +60,9 @@
 </template>
 
 <script>
+import { mapWritableState } from "pinia"
+
+import { useBingoNumbersStore } from "@/stores/bingoNumbers"
 
 import rouletteSound from "../assets/roulette.mp3";
 import horagaiSound from "../assets/horagai.mp3";
@@ -67,15 +70,19 @@ import horagaiSound from "../assets/horagai.mp3";
 export default {
 data() {
   return {
-    drawnNumber: null,
     numbers: Array.from({ length: 75 }, (_, index) => index + 1),
-    selectedNumbers: [],
-    normalSelectedNumbers: [],
     generating: false,
-    countNumber:0,
     dialog: false,
     kakutei_flg:false
   };
+},
+computed: {
+  ...mapWritableState(useBingoNumbersStore, [
+    "countNumber",
+    "drawnNumber",
+    "normalSelectedNumbers",
+    "selectedNumbers"
+  ])
 },
 methods: {
   startBingo() {
@@ -104,7 +111,6 @@ methods: {
   drawNumber() {
     const remainingNumbers = this.numbers.filter(number => !this.selectedNumbers.includes(number));
     if (remainingNumbers.length > 0) {
-      this.countNumber++;
       this.generating = true;
       for (let i = 0; i < 15; i++) {
         setTimeout(() => {
@@ -130,6 +136,7 @@ methods: {
         //通常の抽選処理
           this.selectedNumbers.push(this.drawnNumber);
           this.normalSelectedNumbers.push(this.drawnNumber);
+          this.countNumber++;
           this.generating = false;
         }
       }, 5000);
