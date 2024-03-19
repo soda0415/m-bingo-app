@@ -170,9 +170,6 @@ watch: {
 display: flex;
 flex-wrap: wrap;
 text-align: center;
-background-image: url("../assets/forest.jpg");
-background-position: center; /* 画像を中央に配置 */
-background-size:cover;
 min-height: 90vh; /* ページ全体を画像でカバー */
 }
 

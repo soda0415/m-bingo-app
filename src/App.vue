@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <v-app>
     <v-app-bar app title="M-Bingo-App" color="surface-variant"></v-app-bar>
-    <v-main>
+    <v-main class="background">
       <router-view />
     </v-main>
   </v-app>
@@ -21,5 +21,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.background {
+  background-image: url("./assets/forest.jpg");
+  background-size:cover;
+}
 </style>
