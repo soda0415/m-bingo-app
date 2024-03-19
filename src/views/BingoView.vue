@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <v-container id="app" class="w-50">
     <div>
        <p style="background-color: whitesmoke">抽選カウント：{{ countNumber }}</p>
     </div>
@@ -34,8 +34,7 @@
       </v-dialog>
     </v-row>
 
-    <v-container>
-      <div id="bingo-container">
+    <div id="bingo-container">
       <div
         v-for="number in numbers"
         :key="number"
@@ -46,8 +45,7 @@
         {{ number }}
       </div>
     </div>
-    </v-container>
-  </div>
+  </v-container>
 </template>
 
 <script>
