@@ -61,7 +61,6 @@
 
 <script>
 import { mapWritableState } from "pinia"
-
 import { useBingoNumbersStore } from "@/stores/bingoNumbers"
 
 import rouletteSound from "../assets/roulette.mp3";
@@ -129,7 +128,7 @@ methods: {
       setTimeout(() => {
         //無理やり100を出させるロジック分岐
         if (this.kakutei_flg){
-          this.drawnNumber = 100;
+          this.drawnNumber = 999;
           this.generating = false;
           this.kakutei_flg = false;
         }else{
