@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <v-container id="app" class="w-50">
     <div>
        <p style="background-color: whitesmoke">抽選カウント：{{ countNumber }}</p>
     </div>
@@ -10,21 +10,12 @@
       </div>
     </v-container>  
 
-    <div id="buttons-container">
-      <v-btn @click="startBingo" :disabled="generating">抽選</v-btn>
-    </div>
-
-    <div id="buttons-container">
-      <v-btn @click="resetGame" :disabled="generating">リセット</v-btn>
-    </div>
-
-    <div id="buttons-container">
-      <v-btn @click="conchShell" :disabled="generating">当選</v-btn>
-    </div>
-
-    <div id="buttons-container">
-      <v-btn @click="kakutei" :disabled="generating">？</v-btn>
-    </div>
+    <v-row id="buttons-container">
+      <v-btn @click="startBingo" :disabled="generating" class="mx-3">抽選</v-btn>
+      <v-btn @click="resetGame" :disabled="generating" class="mx-3">リセット</v-btn>
+      <v-btn @click="conchShell" :disabled="generating" class="mx-3">当選</v-btn>
+      <v-btn @click="kakutei" :disabled="generating" class="mx-3">？</v-btn>
+    </v-row>
 
     <v-row justify="center">
       <v-dialog
@@ -43,8 +34,7 @@
       </v-dialog>
     </v-row>
 
-    <v-container>
-      <div id="bingo-container">
+    <div id="bingo-container">
       <div
         v-for="number in numbers"
         :key="number"
@@ -55,8 +45,7 @@
         {{ number }}
       </div>
     </div>
-    </v-container>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -169,9 +158,6 @@ watch: {
 display: flex;
 flex-wrap: wrap;
 text-align: center;
-background-image: url("../assets/forest.jpg");
-background-position: center; /* 画像を中央に配置 */
-background-size:cover;
 min-height: 90vh; /* ページ全体を画像でカバー */
 }
 
@@ -200,7 +186,6 @@ font-size: 50px;
 
 #buttons-container {
 display: flex;
-justify-content: space-between;
 margin: 10px;
 }
 
